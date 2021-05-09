@@ -79,7 +79,6 @@ jobs:
         
       - name: configure meshery 
         run: |
-           mesheryctl system logs 
            printf ${{ secrets.AUTH_TOKEN }} > ~/auth.json
            mesheryctl system config minikube -t ~/auth.json
        
