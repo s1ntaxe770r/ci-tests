@@ -1,8 +1,6 @@
-# This is a basic workflow to help you get started with Actions
 
 name: CI
 
-# Controls when the action will run. 
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
   push:
@@ -77,10 +75,11 @@ jobs:
         run:  mesheryctl system start
       
         
-      - name: configure meshery 
-        run: |
-           printf ${{ secrets.AUTH_TOKEN }} > ~/auth.json
-           mesheryctl system config minikube -t ~/auth.json
+      - name: create auth.json
+        run:  printf ${{ secrets.AUTH_TOKEN }} > ~/auth.json
+          
+      - name:  configure meshery
+        run:  mesheryctl system config minikube -t ~/auth.json
        
              
  
