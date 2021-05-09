@@ -74,10 +74,8 @@ jobs:
            
       - name: deploy using mesheryctl
         if: ${{ env.DEPLOYMENT_MODE == 'mesheryctl' }} 
-        run:  mesheryctl system start&
+        run:  mesheryctl system start
       
-      - name: logs
-        run:  mesheryctl system logs
         
       - name: configure meshery 
         run: |
