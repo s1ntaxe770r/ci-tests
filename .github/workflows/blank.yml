@@ -77,7 +77,7 @@ jobs:
       
         
       - name: export token
-        run: export TOKEN=${{ secrets.AUTH_TOKEN }} 
+        run: export TOKEN="${{ secrets.AUTH_TOKEN }}"
         
       - name: pipe to a file
         run: |
