@@ -77,7 +77,7 @@ jobs:
       
         
       - name: create auth.json
-        run:  printf ${{ secrets.AUTH_TOKEN }} | echo >  ~/auth.json
+        run:  printf "${{ secrets.AUTH_TOKEN }}" | echo >  ~/auth.json
           
       - name:  configure meshery
         run:  mesheryctl system config minikube -t ~/auth.json
