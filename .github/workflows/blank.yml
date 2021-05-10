@@ -80,7 +80,10 @@ jobs:
         run: export TOKEN="${{ secrets.AUTH_TOKEN }}"
         
       - name: pipe to a file
-        run: cat <<< "$TOKEN" > ~/auth.json
+        run: |
+          cat <<EOF > ~/auth.json
+          { "meshery-provider": "Meshery", "token": "$TOKEN" }
+          EOF
           
       - name:  configure meshery
         run:  mesheryctl system config minikube -t ~/auth.json
