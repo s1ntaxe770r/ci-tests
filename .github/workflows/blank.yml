@@ -84,11 +84,9 @@ jobs:
           cat <<EOF > ~/auth.json
           { "meshery-provider": "Meshery", "token": "$TOKEN" }
           EOF
-      - name: logs
-        run: mesheryctl system logs
-        
+         
       - name:  configure meshery
-        run:  mesheryctl system config minikube -t ~/auth.json && mesheryctl system logs
+        run: kubectl config view --flatten
        
              
  
